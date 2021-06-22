@@ -1,0 +1,33 @@
+﻿<Window x:Class="KursRSPO.RegistrationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KursRSPO"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Регистрация" Height="339.667" Width="462" Background="#FF22272E" Foreground="Black" ResizeMode="NoResize" WindowStyle="None" Icon="bank.png">
+    <Grid x:Name="RegistrationRoot" Background="#22272e" MouseDown="RegistrationRoot_MouseDown" Margin="0,0,-1,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="Регистрация" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#FFCDD9E5" FontSize="48" Height="72" Width="295"/>
+
+        <Border BorderThickness="1" Margin="10,82,10,32" Background="#FF2D333B" CornerRadius="30">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="2"/>
+            </Border.Effect>
+            <StackPanel>
+                <TextBox x:Name="loginField"  Style="{StaticResource MaterialDesignTextBox}" materialDesign:HintAssist.Hint="Логин" FontSize="24" Margin="10,20,10,10" Foreground="#FFCDD9E5" CaretBrush="#FFCDD9E5"></TextBox>
+                <PasswordBox x:Name="passwordField"  Style="{StaticResource MaterialDesignPasswordBox}" materialDesign:HintAssist.Hint="Пароль" FontSize="24" Margin="10,20,10,10" Foreground="#FFCDD9E5" CaretBrush="#FFCDD9E5"></PasswordBox>
+                <Grid Height="57">
+                    <Button Content="Выход" Foreground="#FFFFFCF6" Height="Auto" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="282,10,10,0" Click="Button_Click" />
+                    <Button x:Name="registrationButton" Content="Зарегистрироваться" Foreground="#FFFFFCF6" Height="Auto" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="10,10,200,0" Click="registrationButton_Click"/>
+                </Grid>
+
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

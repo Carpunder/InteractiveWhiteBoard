@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Whiteboard</title>
+    <link rel="stylesheet" href="css/katex.css">
+    <script src="js/whiteboard.js?ver=0.0.2"></script>
+    <script src="js/katex.min.js"></script>
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        #page-wrapper {
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="page-wrapper">
+</div>
+<script type="text/javascript">
+        var board = new Whiteboard();
+        board.init( 'page-wrapper' );
+    </script>
+</body>
+</html>
