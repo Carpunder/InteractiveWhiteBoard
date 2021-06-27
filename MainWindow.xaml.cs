@@ -33,7 +33,7 @@ namespace KursRSPO
         {
             user = db.Users.FirstOrDefault(i => i.id == User.userId);
             titleLabel.Content = user?.Login;
-            var rooms = db.Rooms.Where(i => i.user_id == user.id).Select(values => new
+            var rooms = db.Rooms.Select(values => new
             {
                 values.id,
                 values.Name,
@@ -44,7 +44,7 @@ namespace KursRSPO
 
         private void updateTableButton_Click(object sender, RoutedEventArgs e)
         {
-            var rooms = db.Rooms.Where(i => i.user_id == user.id).Select(values => new
+            var rooms = db.Rooms.Select(values => new
             {
                 values.id,
                 values.Name,
@@ -85,6 +85,12 @@ namespace KursRSPO
             {
                 MessageBox.Show("Ошибка");
             }
+        }
+
+        private void createRoomButton_Click(object sender, RoutedEventArgs e)
+        {
+            CreateRoomWindow createRoomWindow = new CreateRoomWindow();
+            createRoomWindow.Show();
         }
     }
 }

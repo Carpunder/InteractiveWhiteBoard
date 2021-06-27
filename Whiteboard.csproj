@@ -113,6 +113,9 @@
     <Compile Include="Classes\Note.cs" />
     <Compile Include="Classes\Room.cs" />
     <Compile Include="Classes\User.cs" />
+    <Compile Include="CreateRoomWindow.xaml.cs">
+      <DependentUpon>CreateRoomWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -135,6 +138,10 @@
       <DependentUpon>AuthorizationWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="CreateRoomWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -238,7 +245,6 @@
     <Resource Include="bankDark.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="index.html" />
     <Content Include="whiteboard-main\docs\css\katex.css" />
     <Content Include="whiteboard-main\docs\index.html" />
     <Content Include="whiteboard-main\docs\js\katex.min.js" />

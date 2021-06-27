@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,7 @@ namespace KursRSPO
         private readonly IEngine engine;
         private readonly IBrowser browser;
         private ApplicationContext db;
+        public User user;
         public BoardWindow()
         {
             InitializeComponent();
@@ -37,6 +39,13 @@ namespace KursRSPO
             browser = engine.CreateBrowser();
             browser.Navigation.LoadUrl("C:\\Users\\Flarl\\source\\repos\\Whiteboard\\whiteboard-main\\docs\\index.html");
             BrowserView.InitializeFrom(browser);
+            user = db.Users.FirstOrDefault(i => i.id == User.userId);
+            titleLabel.Content = user.Login;
+            notesListBox.ItemsSource = db.Notes.Where(i => i.user_id == user.id).Select(values => new
+            {
+                values.Title,
+                values.Content,
+            }).ToList();
 
         }
 
@@ -64,6 +73,17 @@ namespace KursRSPO
         {
             engine.Dispose();
             browser.Dispose();
+        }
+
+        private void sendMessageButton_Click(object sender, RoutedEventArgs e)
+        {
+            Random random = new Random();
+            if(messageField.Text == String.Empty)
+                return;
+            chatBlock.Text += Environment.NewLine;
+            chatBlock.Text += $"{user.Login} : {messageField.Text}";
+            chatBlock.Text += Environment.NewLine;
+            chatBlock.ScrollToEnd();
         }
     }
 }
